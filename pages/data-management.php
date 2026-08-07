@@ -1,17 +1,14 @@
 <?php
+require_once __DIR__ . '/../config/config.php';
+requireRegistrar();
 
+$page_title = "Data Management";
 $page_css = "data-management.css";
 $page_js = "data-management.js";
 
 include __DIR__ . '/../includes/header.php';
 
 ?>
-
-<div class="top-nav">
-    <h2>Data Management</h2>
-    <?php include __DIR__ . '/../includes/navbar.php'; ?>
-</div>
-
 
 <div class="page-container">
 

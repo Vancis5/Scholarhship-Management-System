@@ -128,10 +128,10 @@ th.checkbox-cell input[type=checkbox] {
   font-weight: 500;
 }
 
-.stat-card .value { font-size: 24px; font-weight: 700; color: var(--slate-900); margin-top: 4px; }
-.stat-card .value.warning { color: #b45309; }
-.stat-card .value.accent { color: var(--teal-700); }
-.stat-card .value.danger { color: #b91c1c; }
+.stat-card .value { font-size: 24px; font-weight: 700; color: #238f54; margin-top: 4px; }
+.stat-card .value.warning { color: #dc2626; }
+.stat-card .value.accent { color: #dc2626; }
+.stat-card .value.danger { color: #dc2626; }
 
 /* ---------- Type filter pills ---------- */
 .pill-filter {
@@ -155,7 +155,7 @@ th.checkbox-cell input[type=checkbox] {
 }
 
 .pill-btn:hover { opacity: 0.85; }
-.pill-btn.active.type-all { background: #a2bce2; color: #207399;; }
+.pill-btn.active.type-all { background: var(--green-100, #e8f5e9); color: var(--green-900, #134e2a); }
 .pill-btn.active.type-missing_requirements { background: #fef3c7; color: #92400e; }
 .pill-btn.active.type-renewal_deadline {background: #d6a0ca; color: #df89c2; }
 .pill-btn.active.type-failed_retention { background: #fee2e2; color: #991b1b; }

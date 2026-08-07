@@ -165,16 +165,16 @@ function normalize(record) {
           '<td><span style="color:' + (a.enrolled ? "var(--green)" : "var(--red)") + '"><span class="dot" style="background:' + (a.enrolled ? "var(--green)" : "var(--red)") + '"></span>' + (a.enrolled ? "Enrolled" : "Not Enrolled") + "</span></td>" +
           '<td style="color:' + (a.docsComplete ? "var(--ink)" : "var(--red)") + '">' + (a.docsComplete ? "Complete" : "Missing") + "</td>" +
           "<td>" + statusBadge(a.status) + "</td>" +
-          '<td><button class="btn-review" data-review="' + a.id + '">Review</button></td>' +
+          '<td><button class="btn-primary" style="height:32px; padding:0 12px; font-size:12.5px;" data-review="' + a.id + '">Review</button></td>' +
           "</tr>"
         );
       })
       .join("");
 
     wrap.innerHTML =
-      "<table><thead><tr>" +
-      "<th>Applicant</th><th>Scholarship Type</th><th>GWA</th><th>Enrollment</th><th>Documents</th><th>Status</th><th>Action</th>" +
-      "</tr></thead><tbody>" + rows + "</tbody></table>";
+      '<table class="applicants-table"><thead><tr>' +
+      '<th>Applicant</th><th>Scholarship Type</th><th>GWA</th><th>Enrollment</th><th>Documents</th><th>Status</th><th class="actions-head">Action</th>' +
+      '</tr></thead><tbody>' + rows + '</tbody></table>';
 
     wrap.querySelectorAll("[data-review]").forEach((btn) => {
       btn.addEventListener("click", (e) => {
@@ -260,7 +260,7 @@ function normalize(record) {
       '<div class="right-body">' +
       '<div class="profile">' +
       '<div class="profile-top"><div class="avatar">' + initials(a.name) + "</div>" +
-      '<div><div class="profile-name">' + esc(a.name) + " " + statusBadge(a.status) + '</div><div class="profile-id">' + esc(a.studentId) + "</div></div></div>" +
+      '<div><div class="eval-profile-name">' + esc(a.name) + " " + statusBadge(a.status) + '</div><div class="profile-id">' + esc(a.studentId) + "</div></div></div>" +
       '<div class="profile-meta">' +
       "<span>" + esc(a.program) + "</span>" +
       "<span>" + esc(a.type) + " Scholarship</span>" +

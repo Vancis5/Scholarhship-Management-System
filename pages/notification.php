@@ -1,14 +1,11 @@
-    <?php
+<?php
+$page_title = "Notifications";
 $page_css = "notification.css";
 $page_js = "notification.js";
- include __DIR__ . '/../includes/header.php';
+include __DIR__ . '/../includes/header.php';
 ?>
 
-<div class="top-nav">
-    <h2>Notifications</h2>
-    <?php include __DIR__ . '/../includes/navbar.php'; ?>
-</div>
-  <div class="page">
+<div class="page">
 
     <div class="stat-grid">
       <div class="stat-card">

@@ -1,12 +1,12 @@
 <?php
+require_once __DIR__ . '/../config/config.php';
+requireRegistrar();
+
+$page_title = "Renewal & Retention";
 $page_css = "renewal-retention.css";
 $page_js = "renewal-retention.js";
 include __DIR__ . '/../includes/header.php';
 ?>
-<div class="top-nav">
-    <h2>Renewal & Retention</h2>
-    <?php include __DIR__ . '/../includes/navbar.php'; ?>
-</div>
  <main class="page">
 
     <div class="summary-row" id="summaryRow">
@@ -30,32 +30,44 @@ include __DIR__ . '/../includes/header.php';
 
     <div class="toolbar">
       <input type="search" id="searchBox" placeholder="Search by name or student ID…">
-      <select id="SchoolYearFilter">
-        <option value="">All School Year</option>
-        <option value="eligible">2024</option>
-        <option value="at-risk">2025</option>
-        <option value="terminated">2026</option>
-      </select>
+      <div class="select-wrap">
+        <select id="SchoolYearFilter">
+          <option value="">All School Year</option>
+          <option value="eligible">2024</option>
+          <option value="at-risk">2025</option>
+          <option value="terminated">2026</option>
+        </select>
+        <i data-lucide="chevron-down"></i>
+      </div>
 
-      <select id="semesterFilter">
-        <option value="">All Semesters</option>
-        <option value="first">First Semester</option>
-        <option value="second">Second Semester</option>
-      </select>
+      <div class="select-wrap">
+        <select id="semesterFilter">
+          <option value="">All Semesters</option>
+          <option value="first">First Semester</option>
+          <option value="second">Second Semester</option>
+        </select>
+        <i data-lucide="chevron-down"></i>
+      </div>
 
-      <select id="scholarshipFilter">
-        <option value="">All Schoalrship Type</option>
-        <option value="eligible">Academic Scholarship</option>
-        <option value="at-risk">Merit Scholarship</option>
-        <option value="terminated">Endorsment Scholarships</option>
-      </select>
+      <div class="select-wrap">
+        <select id="scholarshipFilter">
+          <option value="">All Schoalrship Type</option>
+          <option value="eligible">Academic Scholarship</option>
+          <option value="at-risk">Merit Scholarship</option>
+          <option value="terminated">Endorsment Scholarships</option>
+        </select>
+        <i data-lucide="chevron-down"></i>
+      </div>
 
-      <select id="statusFilter">
-        <option value="">All statuses</option>
-        <option value="eligible">Eligible</option>
-        <option value="at-risk">At-Risk</option>
-        <option value="terminated">Terminated</option>
-      </select>
+      <div class="select-wrap">
+        <select id="statusFilter">
+          <option value="">All statuses</option>
+          <option value="eligible">Eligible</option>
+          <option value="at-risk">At-Risk</option>
+          <option value="terminated">Terminated</option>
+        </select>
+        <i data-lucide="chevron-down"></i>
+      </div>
     </div>
 
     <table class="ledger" id="ledgerTable">

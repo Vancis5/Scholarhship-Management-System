@@ -1,43 +1,39 @@
 <?php
+$page_title = "Records";
 $page_css = "records.css";
 $page_js = "records.js";
 
 include __DIR__ . '/../includes/header.php';
 ?>
 
-<div class="top-nav">
-    <h2>Records</h2>
-    <?php include __DIR__ . '/../includes/navbar.php'; ?>
-</div>
-
 <div class="page">
+    <div class="table-header-toolbar">
+        <div class="toolbar">
+            <div class="search-wrap">
+                <input type="text" placeholder="Search applicant...">
+                <i data-lucide="search"></i>
+            </div>
 
-        <!-- Toolbar -->
-        <div class="records-toolbar">
-            <div class="toolbar">
+            <div class="select-wrap">
                 <select id="filterType">
                     <option>All Scholarship Types</option>
                 </select>
+                <i data-lucide="chevron-down"></i>
+            </div>
 
+            <div class="select-wrap">
                 <select id="filterStatus">
                     <option>All Status</option>
                 </select>
-
-                <div class="search-wrap">
-                    <input type="text" placeholder="Search applicant...">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"/>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                    </svg>
-                </div>
+                <i data-lucide="chevron-down"></i>
             </div>
-
-            <button class="btn-export">
-                <i class='bx bx-export'></i>
-                Export Records
-            </button>
         </div>
+
+        <button class="btn-primary btn-export">
+            <i data-lucide="download"></i>
+            Export Records
+        </button>
+    </div>
 
         <div class="table-card">
         <!-- Table -->

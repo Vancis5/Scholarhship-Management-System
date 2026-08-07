@@ -8,39 +8,51 @@
   }
 
 
-/* ---------------- Summary cards ---------------- */
 .summary-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin-bottom: 32px;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 1024px) {
+  .summary-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .summary-row {
+    grid-template-columns: 1fr;
+  }
 }
 
 .summary-card {
-  background:#ffff;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 18px 20px;
-  border-radius: 15px;
-
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .summary-card .label {
-  color: #6B7280;
-    font-size: 14px;
-    font-weight: 500;
+  color: #6b7280;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .summary-card .value {
-  font-size: 24px;
+  font-size: 32px;
   font-weight: 700;
-  color: var(--slate-900);
-  margin-top: 4px;
+  color: #238f54;
+  margin-top: 6px;
 }
 
-.summary-card.eligible .value { color:rgb(102, 224, 91); }
-.summary-card.at-risk .value { color:#d3a033; }
-.summary-card.terminated .value { color:#c02424; }
+.summary-card.eligible .value { color: #238f54; }
+.summary-card.at-risk .value { color: #dc2626; }
+.summary-card.terminated .value { color: #dc2626; }
 
 /* ---------------- Toolbar ---------------- */
 .toolbar { display: flex; gap: 12px; margin-bottom: 18px; align-items: center; }
@@ -209,8 +221,9 @@
 .check-icon.fail { background: var(--status-terminated-bg); color: var(--status-terminated); }
 
 .remarks-box {
-  border-left: 3px solid var(--brass-500);
-  background: var(--paper-100);
+  background: #f8faf9;
+  border: 1px solid #e0e8e4;
+  border-radius: 8px;
   padding: 14px 16px;
   margin-bottom: 20px;
 }

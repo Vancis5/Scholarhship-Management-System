@@ -1,46 +1,39 @@
 <?php
+$page_title = "Scholarships";
 $page_css = "scholarships.css";
 $page_js = "scholarships.js";
 
 include __DIR__ . '/../includes/header.php';
 ?>
 
-<div class="top-nav">
-    <h2>Scholarships</h2>
-    <?php include __DIR__ . '/../includes/navbar.php'; ?>
-</div>
-
 <div class="page">
-        <!-- Toolbar -->
-        <div class="scholarships-toolbar">
+    <div class="table-header-toolbar">
+        <div class="toolbar">
+            <div class="search-wrap">
+                <input type="text" placeholder="Search scholarship...">
+                <i data-lucide="search"></i>
+            </div>
 
-            <div class="toolbar">
-
+            <div class="select-wrap">
                 <select id="filterType">
                     <option>All Scholarship Types</option>
                 </select>
+                <i data-lucide="chevron-down"></i>
+            </div>
 
+            <div class="select-wrap">
                 <select id="filterStatus">
                     <option>All Status</option>
                 </select>
-
-                <div class="search-wrap">
-                    <input type="text" placeholder="Search scholarship...">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"/>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                    </svg>
-                </div>
-
+                <i data-lucide="chevron-down"></i>
             </div>
-
-            <button class="btn-plus">
-                <i class='bx bx-plus-circle'></i>
-                Add Scholarship
-            </button>
-
         </div>
+
+        <button class="btn-primary" id="addScholarshipBtn">
+            <i data-lucide="plus"></i>
+            Add Scholarship
+        </button>
+    </div>
 
         <div class="table-card">
             <!-- Table -->

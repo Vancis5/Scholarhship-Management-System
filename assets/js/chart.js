@@ -13,7 +13,7 @@ const monthlyData = {
 };
 // ---------------------------------------------------------
 
-const colors = ["#2a78d6", "#eda100", "#1baf7a"];
+const colors = ["#238f54", "#2ea263", "#3ab774", "#1b6336"];
 
 function makeBarChart(canvasId, dataObj) {
   const labels = Object.keys(dataObj);

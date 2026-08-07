@@ -1,22 +1,39 @@
 <?php
+require_once __DIR__ . '/../config/config.php';
+requireRegistrar();
 
+$page_title = "Applicants";
 $page_css = "applicants.css";
 $page_js = "applicants.js";
 
 include __DIR__ . '/../includes/header.php';
 ?>
 
-  <div class="top-nav">
-    <h2>Applicants</h2>
-  <?php include __DIR__ . '/../includes/navbar.php'; ?>
-</div>
-
-
     <div class="page">
-        <div class="table-header">
-            <button class="btn-primary btn-add-applicant" id="openBtn">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 11v6M19 14h6"/></svg>
-              Add Applicant
+        <div class="table-header-toolbar">
+            <div class="toolbar">
+                <div class="search-wrap">
+                    <input id="searchInput" placeholder="Search applicant...">
+                    <i data-lucide="search"></i>
+                </div>
+                <div class="select-wrap">
+                    <select id="filterType"><option value="all">All Scholarship Types</option></select>
+                    <i data-lucide="chevron-down"></i>
+                </div>
+                <div class="select-wrap">
+                    <select id="filterStatus">
+                        <option value="all">All Status</option>
+                        <option value="pending">Pending</option>
+                        <option value="approved">Approved</option>
+                        <option value="rejected">Rejected</option>
+                    </select>
+                    <i data-lucide="chevron-down"></i>
+                </div>
+            </div>
+
+            <button class="btn-primary" id="openBtn">
+                <i data-lucide="user-plus"></i>
+                Add Applicant
             </button>
         </div>
        <div class="table-wrap">

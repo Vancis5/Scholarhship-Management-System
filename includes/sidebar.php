@@ -1,3 +1,6 @@
+<?php
+$current_page = basename($_SERVER['PHP_SELF'], '.php');
+?>
 <nav class="sidebar">
     <header>
         <div class="image-text">
@@ -11,78 +14,81 @@
         </div>
     </header>
 
-    <br>
-
     <div class="menu-bar">
         <div class="menu">
-                <ul class="menu-links">
-                    <li class="nav-link">
-                        <a href="<?= SITE_URL?>/dashboard">
-                            <i class="bx bx-home"></i>
-                            <span class="text nav-text">Dashboard</span>
-                        </a>
-                    </li>
+            <ul class="menu-links">
+                <li class="nav-link <?= ($current_page === 'dashboard' || $current_page === 'index') ? 'active' : '' ?>">
+                    <a href="<?= SITE_URL ?>/dashboard">
+                        <i data-lucide="layout-dashboard"></i>
+                        <span class="text nav-text">Dashboard</span>
+                    </a>
+                </li>
 
-                    <li class="nav-link">
-                        <a href="<?= SITE_URL?>/applicants">
-                            <i class="bx bx-user"></i>
+                <?php if (!isStudent()): ?>
+                    <li class="nav-link <?= ($current_page === 'applicants') ? 'active' : '' ?>">
+                        <a href="<?= SITE_URL ?>/applicants">
+                            <i data-lucide="users"></i>
                             <span class="text nav-text">Applicants</span>
                         </a>
                     </li>
 
-                    <li class="nav-link">
-                        <a href="<?= SITE_URL?>/data-management">
-                            <i class="bx bx-data"></i>
-                            <span class="text nav-text">Data Management</span>
-                        </a>
-                    </li>
-
-
-                    <li class="nav-link">
-                        <a href="<?= SITE_URL?>/evaluation">
-                            <i class="bx bx-task"></i>
+                    <li class="nav-link <?= ($current_page === 'evaluation') ? 'active' : '' ?>">
+                        <a href="<?= SITE_URL ?>/evaluation">
+                            <i data-lucide="clipboard-check"></i>
                             <span class="text nav-text">Evaluation</span>
                         </a>
                     </li>
+                <?php endif; ?>
 
-                <li class="nav-link">
-                    <a href="<?= SITE_URL?>/records">
-                        <i class="bx bx-folder"></i>
+                <li class="nav-link <?= ($current_page === 'records') ? 'active' : '' ?>">
+                    <a href="<?= SITE_URL ?>/records">
+                        <i data-lucide="folder"></i>
                         <span class="text nav-text">Records</span>
-                        </a>
+                    </a>
                 </li>
 
-                <li class="nav-link">
-                    <a href="<?= SITE_URL?>/scholarships">
-                        <i class="bx bxs-graduation"></i>
+                <li class="nav-link <?= ($current_page === 'scholarships') ? 'active' : '' ?>">
+                    <a href="<?= SITE_URL ?>/scholarships">
+                        <i data-lucide="graduation-cap"></i>
                         <span class="text nav-text">Scholarships</span>
                     </a>
                 </li>
 
-                <li class="nav-link">
-                    <a href="<?=SITE_URL?>/renewal-retention">
-                        <i class="bx bx-bar-chart-alt-2"></i>
-                        <span class="text nav-text">Renewal &amp; Retention</span>
-                    </a>
-                </li>
+                <?php if (!isStudent()): ?>
+                    <li class="nav-link <?= ($current_page === 'renewal-retention') ? 'active' : '' ?>">
+                        <a href="<?= SITE_URL ?>/renewal-retention">
+                            <i data-lucide="bar-chart-3"></i>
+                            <span class="text nav-text">Renewal &amp; Retention</span>
+                        </a>
+                    </li>
+                <?php endif; ?>
 
-                <li class="nav-link">
-                    <a href="<?= SITE_URL?>/notification">
-                        <i class="bx bx-task"></i>
+                <li class="nav-link <?= ($current_page === 'notification') ? 'active' : '' ?>">
+                    <a href="<?= SITE_URL ?>/notification">
+                        <i data-lucide="bell"></i>
                         <span class="text nav-text">Notifications</span>
                     </a>
                 </li>
 
-                <li class="nav-cog">
-                    <a href="#">
-                        <i class="bx bx-cog"></i>
+                <?php if (!isStudent()): ?>
+                    <li class="nav-link <?= ($current_page === 'data-management') ? 'active' : '' ?>">
+                        <a href="<?= SITE_URL ?>/data-management">
+                            <i data-lucide="database"></i>
+                            <span class="text nav-text">Data Management</span>
+                        </a>
+                    </li>
+                <?php endif; ?>
+
+                <li class="nav-link <?= ($current_page === 'settings') ? 'active' : '' ?>">
+                    <a href="<?= SITE_URL ?>/settings">
+                        <i data-lucide="settings"></i>
                         <span class="text nav-text">Settings</span>
                     </a>
                 </li>
 
                 <li class="nav-link">
-                    <a href="#">
-                        <i class="bx bx-log-out"></i>
+                    <a href="<?= SITE_URL ?>/logout">
+                        <i data-lucide="log-out"></i>
                         <span class="text nav-text">Log Out</span>
                     </a>
                 </li>
