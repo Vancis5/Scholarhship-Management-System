@@ -1,6 +1,6 @@
 <div class="navbar-actions">
     <!-- Notification Bell Button -->
-    <a href="<?= SITE_URL ?>/notification" class="nav-action-btn" title="Notifications">
+    <a href="<?= SITE_URL ?>/notification" class="nav-action-btn <?= ($current_page ?? '') === 'notification' ? 'active' : '' ?>" title="Notifications">
         <i data-lucide="bell"></i>
         <span class="nav-btn-badge" id="navNotifBadge">0</span>
     </a>

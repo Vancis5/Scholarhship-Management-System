@@ -59,12 +59,6 @@ $current_page = basename($_SERVER['PHP_SELF'], '.php');
                     </a>
                 </li>
 
-                <li class="nav-link <?= ($current_page === 'notification') ? 'active' : '' ?>">
-                    <a href="<?= SITE_URL ?>/notification">
-                        <i data-lucide="bell"></i>
-                        <span class="text nav-text">Notifications</span>
-                    </a>
-                </li>
 
                 <li class="nav-link <?= ($current_page === 'data-management') ? 'active' : '' ?>">
                     <a href="<?= SITE_URL ?>/data-management">
