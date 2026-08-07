@@ -1,6 +1,5 @@
 <?php
 require_once __DIR__ . '/../config/config.php';
-requireRegistrar();
 
 $page_title = "Applicants";
 $page_css = "applicants.css";

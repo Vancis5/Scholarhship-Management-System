@@ -24,21 +24,19 @@ $current_page = basename($_SERVER['PHP_SELF'], '.php');
                     </a>
                 </li>
 
-                <?php if (!isStudent()): ?>
-                    <li class="nav-link <?= ($current_page === 'applicants') ? 'active' : '' ?>">
-                        <a href="<?= SITE_URL ?>/applicants">
-                            <i data-lucide="users"></i>
-                            <span class="text nav-text">Applicants</span>
-                        </a>
-                    </li>
+                <li class="nav-link <?= ($current_page === 'applicants') ? 'active' : '' ?>">
+                    <a href="<?= SITE_URL ?>/applicants">
+                        <i data-lucide="users"></i>
+                        <span class="text nav-text">Applicants</span>
+                    </a>
+                </li>
 
-                    <li class="nav-link <?= ($current_page === 'evaluation') ? 'active' : '' ?>">
-                        <a href="<?= SITE_URL ?>/evaluation">
-                            <i data-lucide="clipboard-check"></i>
-                            <span class="text nav-text">Evaluation</span>
-                        </a>
-                    </li>
-                <?php endif; ?>
+                <li class="nav-link <?= ($current_page === 'evaluation') ? 'active' : '' ?>">
+                    <a href="<?= SITE_URL ?>/evaluation">
+                        <i data-lucide="clipboard-check"></i>
+                        <span class="text nav-text">Evaluation</span>
+                    </a>
+                </li>
 
                 <li class="nav-link <?= ($current_page === 'records') ? 'active' : '' ?>">
                     <a href="<?= SITE_URL ?>/records">
@@ -54,14 +52,12 @@ $current_page = basename($_SERVER['PHP_SELF'], '.php');
                     </a>
                 </li>
 
-                <?php if (!isStudent()): ?>
-                    <li class="nav-link <?= ($current_page === 'renewal-retention') ? 'active' : '' ?>">
-                        <a href="<?= SITE_URL ?>/renewal-retention">
-                            <i data-lucide="bar-chart-3"></i>
-                            <span class="text nav-text">Renewal &amp; Retention</span>
-                        </a>
-                    </li>
-                <?php endif; ?>
+                <li class="nav-link <?= ($current_page === 'renewal-retention') ? 'active' : '' ?>">
+                    <a href="<?= SITE_URL ?>/renewal-retention">
+                        <i data-lucide="bar-chart-3"></i>
+                        <span class="text nav-text">Renewal &amp; Retention</span>
+                    </a>
+                </li>
 
                 <li class="nav-link <?= ($current_page === 'notification') ? 'active' : '' ?>">
                     <a href="<?= SITE_URL ?>/notification">
@@ -70,26 +66,10 @@ $current_page = basename($_SERVER['PHP_SELF'], '.php');
                     </a>
                 </li>
 
-                <?php if (!isStudent()): ?>
-                    <li class="nav-link <?= ($current_page === 'data-management') ? 'active' : '' ?>">
-                        <a href="<?= SITE_URL ?>/data-management">
-                            <i data-lucide="database"></i>
-                            <span class="text nav-text">Data Management</span>
-                        </a>
-                    </li>
-                <?php endif; ?>
-
-                <li class="nav-link <?= ($current_page === 'settings') ? 'active' : '' ?>">
-                    <a href="<?= SITE_URL ?>/settings">
-                        <i data-lucide="settings"></i>
-                        <span class="text nav-text">Settings</span>
-                    </a>
-                </li>
-
-                <li class="nav-link">
-                    <a href="<?= SITE_URL ?>/logout">
-                        <i data-lucide="log-out"></i>
-                        <span class="text nav-text">Log Out</span>
+                <li class="nav-link <?= ($current_page === 'data-management') ? 'active' : '' ?>">
+                    <a href="<?= SITE_URL ?>/data-management">
+                        <i data-lucide="database"></i>
+                        <span class="text nav-text">Data Management</span>
                     </a>
                 </li>
             </ul>

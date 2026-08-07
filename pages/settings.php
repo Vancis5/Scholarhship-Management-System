@@ -22,8 +22,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <form method="POST">
                 <div class="form-group">
-                    <label><?= isStudent() ? 'Student ID' : 'Username / Email' ?></label>
-                    <input type="text" class="form-input" name="user_identifier" value="<?= htmlspecialchars($_SESSION['user_identifier'] ?? (isStudent() ? '2024-00123' : 'admin@scholarship.gov')) ?>" required>
+                    <label>Username / Email</label>
+                    <input type="text" class="form-input" name="user_identifier" value="<?= htmlspecialchars($_SESSION['user_identifier'] ?? 'admin@scholarship.gov') ?>" required>
                 </div>
 
                 <div class="form-group">
@@ -45,8 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </form>
         </div>
 
-        <?php if (!isStudent()): ?>
-        <!-- System Configuration (Registrar Staff Only) -->
+        <!-- System Configuration -->
         <div class="settings-card">
             <h3>Portal Configuration</h3>
             <p class="settings-subtitle">Manage portal preferences and administrative settings.</p>
@@ -84,7 +83,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <button type="submit" class="btn-save">Save Portal Config</button>
             </form>
         </div>
-        <?php endif; ?>
     </div>
 </div>
 

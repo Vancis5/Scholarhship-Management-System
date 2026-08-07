@@ -14,12 +14,11 @@
                <script src="<?= SITE_URL ?>/assets/js/<?= $page_js ?>"></script>
           <?php endif; ?>
           <script>
-            if (typeof lucide !== 'undefined') {
-              lucide.createIcons();
-            }
-
-            // Top Page Navigation Progress Bar
             document.addEventListener('DOMContentLoaded', () => {
+              if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+              }
+
               const bar = document.getElementById('pageProgressBar');
               if (!bar) return;
 
@@ -80,6 +79,23 @@
                 }).catch(() => {
                   badgeEl.style.display = 'none';
                 });
+              }
+
+              // Profile dropdown toggle on click
+              const profileWrapper = document.querySelector('.nav-profile-dropdown-wrapper');
+              if (profileWrapper) {
+                const profileBtn = profileWrapper.querySelector('.nav-profile-btn');
+                if (profileBtn) {
+                  profileBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    profileWrapper.classList.toggle('active');
+                  });
+                  document.addEventListener('click', (e) => {
+                    if (!profileWrapper.contains(e.target)) {
+                      profileWrapper.classList.remove('active');
+                    }
+                  });
+                }
               }
             });
           </script>

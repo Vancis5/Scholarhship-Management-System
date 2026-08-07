@@ -11,19 +11,3 @@ function checkAuth() {
         exit();
     }
 }
-
-function isStudent() {
-    return isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'student';
-}
-
-function isRegistrar() {
-    return !isStudent();
-}
-
-function requireRegistrar() {
-    checkAuth();
-    if (isStudent()) {
-        header("Location: " . SITE_URL . "/dashboard");
-        exit();
-    }
-}

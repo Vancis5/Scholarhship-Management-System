@@ -1,6 +1,5 @@
 <?php
 require_once __DIR__ . '/../config/config.php';
-requireRegistrar();
 
 $page_title = "Evaluation";
 $page_css = "evaluation.css";
@@ -29,6 +28,20 @@ include __DIR__ . '/../includes/header.php';
                 </select>
                 <i data-lucide="chevron-down"></i>
             </div>
+        </div>
+
+        <div class="header-actions">
+            <input type="file" id="gradeFile" hidden accept=".csv,.xlsx,.xls">
+            <button type="button" class="btn-primary btn-no-anim" id="evalGradeHeaderBtn">
+                <i data-lucide="file-spreadsheet"></i>
+                Import Academic
+            </button>
+
+            <input type="file" id="enrollmentFile" hidden accept=".csv,.xlsx,.xls">
+            <button type="button" class="btn-primary btn-no-anim" id="evalEnrollmentHeaderBtn">
+                <i data-lucide="user-check"></i>
+                Import Enrollment
+            </button>
         </div>
     </div>
 

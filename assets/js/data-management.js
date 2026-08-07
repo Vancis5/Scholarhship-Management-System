@@ -31,6 +31,20 @@ if (gradeBtn && gradeFile && gradeFileName && gradeDeleteBtn) {
         gradeDeleteBtn.style.display = "none";
     });
 
+    const gradeImportBtn = gradeBtn.parentElement ? gradeBtn.parentElement.querySelector(".import-btn") : null;
+    if (gradeImportBtn) {
+        gradeImportBtn.addEventListener("click", function () {
+            if (!gradeFile.files || gradeFile.files.length === 0) {
+                alert("Please select an academic file to import.");
+                return;
+            }
+            alert("Academic records imported successfully!");
+            gradeFile.value = "";
+            gradeFileName.textContent = "No file selected";
+            gradeDeleteBtn.style.display = "none";
+        });
+    }
+
 }
 // ===========================
 // IMPORT ENROLLMENT
@@ -64,5 +78,19 @@ if (enrollmentBtn && enrollmentFile && enrollmentFileName && enrollmentDeleteBtn
         enrollmentFileName.textContent = "No file selected";
         enrollmentDeleteBtn.style.display = "none";
     });
+
+    const enrollmentImportBtn = enrollmentBtn.parentElement ? enrollmentBtn.parentElement.querySelector(".import-btn") : null;
+    if (enrollmentImportBtn) {
+        enrollmentImportBtn.addEventListener("click", function () {
+            if (!enrollmentFile.files || enrollmentFile.files.length === 0) {
+                alert("Please select an enrollment file to import.");
+                return;
+            }
+            alert("Enrollment records imported successfully!");
+            enrollmentFile.value = "";
+            enrollmentFileName.textContent = "No file selected";
+            enrollmentDeleteBtn.style.display = "none";
+        });
+    }
 
 }

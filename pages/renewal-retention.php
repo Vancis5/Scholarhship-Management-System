@@ -1,6 +1,5 @@
 <?php
 require_once __DIR__ . '/../config/config.php';
-requireRegistrar();
 
 $page_title = "Renewal & Retention";
 $page_css = "renewal-retention.css";
@@ -37,7 +36,6 @@ include __DIR__ . '/../includes/header.php';
           <option value="at-risk">2025</option>
           <option value="terminated">2026</option>
         </select>
-        <i data-lucide="chevron-down"></i>
       </div>
 
       <div class="select-wrap">
@@ -46,17 +44,15 @@ include __DIR__ . '/../includes/header.php';
           <option value="first">First Semester</option>
           <option value="second">Second Semester</option>
         </select>
-        <i data-lucide="chevron-down"></i>
       </div>
 
       <div class="select-wrap">
         <select id="scholarshipFilter">
-          <option value="">All Schoalrship Type</option>
+          <option value="">All Scholarship Type</option>
           <option value="eligible">Academic Scholarship</option>
           <option value="at-risk">Merit Scholarship</option>
-          <option value="terminated">Endorsment Scholarships</option>
+          <option value="terminated">Endorsement Scholarships</option>
         </select>
-        <i data-lucide="chevron-down"></i>
       </div>
 
       <div class="select-wrap">
@@ -66,7 +62,6 @@ include __DIR__ . '/../includes/header.php';
           <option value="at-risk">At-Risk</option>
           <option value="terminated">Terminated</option>
         </select>
-        <i data-lucide="chevron-down"></i>
       </div>
     </div>
 

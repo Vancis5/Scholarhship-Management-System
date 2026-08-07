@@ -303,11 +303,43 @@ function normalize(record) {
     }
   }
 
+  // ===========================
+  // IMPORT ACADEMIC & ENROLLMENT RECORDS
+  // ===========================
+  function setupImportHandlers() {
+    const gradeFile = document.getElementById("gradeFile");
+    const evalGradeHeaderBtn = document.getElementById("evalGradeHeaderBtn");
+
+    if (gradeFile && evalGradeHeaderBtn) {
+      evalGradeHeaderBtn.addEventListener("click", () => gradeFile.click());
+      gradeFile.addEventListener("change", function () {
+        if (this.files && this.files.length > 0) {
+          showToast(`Academic records file "${this.files[0].name}" imported!`);
+          this.value = "";
+        }
+      });
+    }
+
+    const enrollmentFile = document.getElementById("enrollmentFile");
+    const evalEnrollmentHeaderBtn = document.getElementById("evalEnrollmentHeaderBtn");
+
+    if (enrollmentFile && evalEnrollmentHeaderBtn) {
+      evalEnrollmentHeaderBtn.addEventListener("click", () => enrollmentFile.click());
+      enrollmentFile.addEventListener("change", function () {
+        if (this.files && this.files.length > 0) {
+          showToast(`Enrollment records file "${this.files[0].name}" imported!`);
+          this.value = "";
+        }
+      });
+    }
+  }
+
   document.getElementById("filterType").addEventListener("change", renderTable);
   document.getElementById("filterStatus").addEventListener("change", renderTable);
   document.getElementById("searchInput").addEventListener("input", renderTable);
 
   (async function init() {
+    setupImportHandlers();
     document.getElementById("tableWrap").innerHTML = '<div class="empty">Loading applicants\u2026</div>';
     await loadApplicants();
     populateTypeFilter();

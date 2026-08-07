@@ -9,13 +9,12 @@ if (!empty($_SESSION['user_logged_in'])) {
 $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $role = trim($_POST['role'] ?? 'registrar');
     $identifier = trim($_POST['identifier'] ?? '');
     $password = trim($_POST['password'] ?? '');
 
     if (!empty($identifier) && !empty($password)) {
         $_SESSION['user_logged_in'] = true;
-        $_SESSION['user_role'] = $role;
+        $_SESSION['user_role'] = 'registrar';
         $_SESSION['user_identifier'] = $identifier;
         
         header("Location: " . SITE_URL . "/dashboard");
@@ -124,35 +123,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             margin-bottom: 20px;
         }
 
-        /* Role Switcher Tabs */
-        .role-tabs {
-            display: flex;
-            background: #e8efe9;
-            padding: 4px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            gap: 4px;
-        }
-
-        .role-btn {
-            flex: 1;
-            padding: 8px 12px;
-            font-size: 13px;
-            font-weight: 600;
-            border: none;
-            border-radius: 8px;
-            background: transparent;
-            color: #4b5563;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .role-btn.active {
-            background: #ffffff;
-            color: var(--green-900);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-        }
-
         .error-msg {
             background: #fef2f2;
             color: #991b1b;
@@ -237,25 +207,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="logo-wrap">
             <img src="<?= SITE_URL ?>/assets/img/cmlogoremove.png" alt="Portal Logo">
         </div>
-        <h1>Scholarship Management</h1>
-        <p>Sign in to access your portal</p>
-
-        <!-- Role Toggle Tabs -->
-        <div class="role-tabs">
-            <button type="button" class="role-btn active" onclick="switchRole('registrar')">Registrar Staff</button>
-            <button type="button" class="role-btn" onclick="switchRole('student')">Student Scholar</button>
-        </div>
+        <h1>Registrar Portal</h1>
+        <p>Sign in to access the Registrar Management System</p>
 
         <?php if (!empty($error)): ?>
             <div class="error-msg"><?= htmlspecialchars($error) ?></div>
         <?php endif; ?>
 
         <form method="POST" action="<?= SITE_URL ?>/login" id="loginForm">
-            <input type="hidden" name="role" id="roleInput" value="registrar">
-
             <div class="form-group">
                 <label for="identifier" id="labelIdentifier">Email Address</label>
-                <input type="text" id="identifier" name="identifier" class="form-input" placeholder="admin@scholarship.gov" required>
+                <input type="email" id="identifier" name="identifier" class="form-input" placeholder="admin@scholarship.gov" required>
             </div>
 
             <div class="form-group">
@@ -274,29 +236,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </div>
 
 <script>
-function switchRole(role) {
-    const roleInput = document.getElementById("roleInput");
-    const labelIdentifier = document.getElementById("labelIdentifier");
-    const inputIdentifier = document.getElementById("identifier");
-    const buttons = document.querySelectorAll(".role-btn");
-
-    roleInput.value = role;
-
-    buttons.forEach(btn => btn.classList.remove("active"));
-
-    if (role === 'registrar') {
-        buttons[0].classList.add("active");
-        labelIdentifier.textContent = "Email Address";
-        inputIdentifier.placeholder = "admin@scholarship.gov";
-        inputIdentifier.type = "email";
-    } else {
-        buttons[1].classList.add("active");
-        labelIdentifier.textContent = "Student ID Number";
-        inputIdentifier.placeholder = "2024-00123";
-        inputIdentifier.type = "text";
-    }
-}
-
 function togglePassword() {
     const input = document.getElementById("password");
     const icon = document.getElementById("eyeIcon");
